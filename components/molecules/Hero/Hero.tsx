@@ -6,12 +6,12 @@ export const Hero = () => {
 
             <Container py="32px" >
                 <Heading>
-                    Increase your productivity
+                    Create your forms
                     <br />
-                    Make your dreams come true
+                    Capture your leads
 
                 </Heading>
-                <Text mt="16px" fontSize="26px" color="gray.600">You are better than this</Text>
+                <Text mt="16px" fontSize="26px" color="gray.600">Make your dreams come true</Text>
             </Container>
         </Flex >
     )

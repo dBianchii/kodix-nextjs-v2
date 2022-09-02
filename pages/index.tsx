@@ -3,10 +3,12 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { MenuItem } from '../components/molecules/MenuItem'
+import { MenuItem } from '../components/molecules/MenuItem/MenuItem'
 import styles from '../styles/Home.module.css'
 import { Hero } from '../components/molecules/Hero/Hero'
 import { TopBar } from '../components/organisms/TopBar/TopBar'
+import { LandingBody } from '../components/organisms/LandingBody/LandingBody'
+import { LandingFooter } from '../components/organisms/LandingFooter/LandingFooter'
 
 const Home: NextPage = () => {
   return (
@@ -23,6 +25,8 @@ const Home: NextPage = () => {
         <Hero />
       </Flex>
 
+      <LandingBody />
+      <LandingFooter></LandingFooter>
     </div>
   )
 }
