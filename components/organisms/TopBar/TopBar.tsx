@@ -19,10 +19,12 @@ export const TopBar: React.FC<TopBar> = ({index}) => {
 		</HStack>
 		<Flex marginLeft="82px">
 			{session ? (
-				<Container>
-					<Img alt="profilePhoto" width="40px" src={session.user?.image?.toString()}></Img>
+				<Flex>
+					<Img borderRadius="full" boxSize="50px" margin="0px 8px" alt="profilePhoto" src={session.user?.image?.toString()}></Img>
+					
 					<Button variant="solid" colorScheme="blue" onClick={() => signOut()}>Log Out</Button>
-				</Container>
+				</Flex>
+				
 				) : (
 				
 				<Button variant="solid" colorScheme="blue" onClick={() => signIn()}>Get Started</Button>
