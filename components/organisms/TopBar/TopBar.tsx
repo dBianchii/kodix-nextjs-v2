@@ -1,12 +1,15 @@
-import { Flex, HStack, Button, Text } from "@chakra-ui/react"
-import { signIn } from "next-auth/react"
+import { Flex, HStack, Button, Text, Img, Container } from "@chakra-ui/react"
+import { signIn, signOut, useSession } from "next-auth/react"
 import { MenuItem } from "../../molecules/MenuItem/MenuItem"
 
 type TopBar = {
     index: number
 }
 
-export const TopBar: React.FC<TopBar> = ({index}) => (
+export const TopBar: React.FC<TopBar> = ({index}) => {
+	const { data: session } = useSession()
+	
+	return(
 	<Flex w="100%" flexDirection="row" alignContent="center" p="8px 16px">
 		<Text fontSize="36px" fontWeight="bold" lineHeight="42px" color="#1F79BA" flexGrow={1}>Kodix</Text>
 		<HStack spacing="16px" alignContent="center">
@@ -15,7 +18,16 @@ export const TopBar: React.FC<TopBar> = ({index}) => (
 			<MenuItem text="Pricing" href="/pricing" isSelected={index === 2}/>
 		</HStack>
 		<Flex marginLeft="82px">
-			<Button variant="solid" colorScheme="blue" onClick={() => signIn()}>Get Started</Button>
+			{session ? (
+				<Container>
+					<Img alt="profilePhoto" width="40px" src={session.user?.image?.toString()}></Img>
+					<Button variant="solid" colorScheme="blue" onClick={() => signOut()}>Log Out</Button>
+				</Container>
+				) : (
+				
+				<Button variant="solid" colorScheme="blue" onClick={() => signIn()}>Get Started</Button>
+
+			)}
 		</Flex>
 	</Flex>
-)
+)}
