@@ -1,6 +1,7 @@
 import { Flex, HStack, Button, Text, Img, Container, useColorMode, Link } from "@chakra-ui/react"
 import { signIn, signOut, useSession } from "next-auth/react"
 import { MenuItem } from "../../molecules/MenuItem/MenuItem"
+import {SunIcon, MoonIcon} from "@chakra-ui/icons"
 
 type TopBar = {
     index: number
@@ -8,7 +9,7 @@ type TopBar = {
 
 export const TopBar: React.FC<TopBar> = ({index}) => {
 	const { data: session } = useSession()
-	const {toggleColorMode} = useColorMode()
+	const {colorMode, toggleColorMode} = useColorMode()
 	return(
 	<Flex w="100%" flexDirection="row" alignContent="center" p="8px 16px">
 		<Text fontSize="36px" fontWeight="bold" lineHeight="42px" color="#1F79BA" flexGrow={1}>Kodix</Text>
@@ -19,7 +20,7 @@ export const TopBar: React.FC<TopBar> = ({index}) => {
 			<MenuItem text="Pricing" href="/pricing" isSelected={index === 2}/>
 		</HStack>
 		<Flex marginLeft="82px">
-			<Button mr={2} onClick={toggleColorMode}>Toggle Color Mode</Button>
+			<Button mr={2} onClick={toggleColorMode}>{colorMode === "dark" ? < SunIcon color="orange.200"/> : <MoonIcon/>}</Button>
 
 			{session ? (
 				<Flex>

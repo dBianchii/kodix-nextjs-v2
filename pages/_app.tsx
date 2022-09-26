@@ -13,7 +13,7 @@ const colors = {
 	}
 }
 const config = {
-	initialColorMode: 'light',
+	initialColorMode: 'dark',
 }
 const fonts = {
 	heading: 'Helvetica',
