@@ -1,4 +1,4 @@
-import { Flex, HStack, Button, Text, Img, Container, useColorMode } from "@chakra-ui/react"
+import { Flex, HStack, Button, Text, Img, Container, useColorMode, Link } from "@chakra-ui/react"
 import { signIn, signOut, useSession } from "next-auth/react"
 import { MenuItem } from "../../molecules/MenuItem/MenuItem"
 
@@ -29,8 +29,12 @@ export const TopBar: React.FC<TopBar> = ({index}) => {
 				</Flex>
 				
 				) : (
-				
-				<Button variant="solid" colorScheme="blue" onClick={() => signIn()}>Get Started</Button>
+					<Button>
+						<Link href="/login">
+							<Text>Get Started</Text>
+						</Link>
+					</Button>
+					
 
 			)}
 
