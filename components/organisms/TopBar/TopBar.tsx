@@ -33,7 +33,6 @@ export const TopBar: React.FC<TopBar> = ({ index }) => {
 						</Wrap>
 						<Button variant="solid" colorScheme="blue" onClick={() => signOut()}>Log Out</Button>
 					</Flex>
-
 				) : (
 					<Flex>
 						<Button>

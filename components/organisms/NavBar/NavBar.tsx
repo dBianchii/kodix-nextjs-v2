@@ -34,7 +34,7 @@ import {
 	SunIcon,
 	MoonIcon
 } from '@chakra-ui/icons';
-import { signOut, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 export default function WithSubnavigation() {
 	const { isOpen, onToggle } = useDisclosure();
@@ -126,21 +126,20 @@ export default function WithSubnavigation() {
 						direction={'row'}
 						spacing={6}>
 						<Button
-							as={'a'}
 							fontSize={'sm'}
 							fontWeight={400}
 							variant={'link'}
-							href={'/login'}>
+							onClick={() => signIn()}>
 							Sign In
 						</Button>
 						<Button
-							as={'a'}
+
 							display={{ base: 'none', md: 'inline-flex' }}
 							fontSize={'sm'}
 							fontWeight={600}
 							color={'white'}
 							bg={'blue.400'}
-							href={'/login'}
+							onClick={() => signIn()}
 							_hover={{
 								bg: 'blue.300',
 							}}>
