@@ -16,6 +16,7 @@
     "@next-auth/prisma-adapter": "^1.0.4",
     "@prisma/client": "^4.3.1",
     "bson": "^4.7.0",
+    "formik": "^2.2.9",
     "framer-motion": "^6.5.1",
     "next": "12.2.2",
     "next-auth": "^4.10.3",
