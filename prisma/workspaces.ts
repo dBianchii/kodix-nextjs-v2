@@ -2,7 +2,7 @@ import { prisma } from "./prisma"
 
 
 export const createWorkspace = async (name: string) => {
-	const workspace = await prisma.workspace.create({
+	const workspace = await prisma.workspaces.create({
 		data: {
 			name
 		}
