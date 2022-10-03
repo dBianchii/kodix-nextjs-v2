@@ -22,10 +22,6 @@ const Product = () => {
 				</SlideFade>
 			</Flex>
 
-
-
-
-
 		</div>
 
 	)

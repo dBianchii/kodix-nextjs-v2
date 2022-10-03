@@ -68,14 +68,15 @@ export default function WithSubnavigation() {
 					/>
 				</Flex>
 				<Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-					<Text
+					<Link href="/"><Text
 						textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
 						fontFamily={'heading'}
 
 						fontWeight="bold"
 						color={"#1F79BA"}>
 						Kodix
-					</Text>
+					</Text></Link>
+
 
 
 					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
