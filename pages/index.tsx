@@ -12,13 +12,10 @@ import { LandingFooter } from '../components/organisms/LandingFooter/LandingFoot
 import { useSession } from 'next-auth/react'
 import NavBar from '../components/organisms/NavBar/NavBar'
 
-const Home: NextPage = ({ data }) => {
+const Home: NextPage = () => {
 	
 	const { data: session, status } = useSession()
 
-	if (data){
-		console.log(data);
-	}
 
 	return (
 		<div className={styles.container}>
