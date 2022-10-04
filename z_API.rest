@@ -1,0 +1,8 @@
+
+### Creates a workspace
+POST http://localhost:3000/api/workspaces
+content-type: application/json
+
+{
+    "name": "I am god"
+}

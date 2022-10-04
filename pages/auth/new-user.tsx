@@ -1,4 +1,3 @@
-
 import {
 	Container,
 	Stack,
@@ -23,38 +22,35 @@ import {
 	Input,
 	FormErrorMessage,
 } from '@chakra-ui/react';
+import axios from 'axios';
 import { Field, Form, Formik } from 'formik';
 import { useSession } from 'next-auth/react';
+import { useState } from 'react';
+import { HeaderLogo } from '../../components/organisms/HeaderLogo/HeaderLogo';
 import NavBar from '../../components/organisms/NavBar/NavBar';
 
 
 
 
 
-export default function CallToActionWithVideo() {
+export default function NewUser() {
 	const { data: session, status } = useSession()
 	const { isOpen, onToggle } = useDisclosure()
 
+	const [workspaceName, setWorkspaceName] = useState<string>();
 
-
-
-
-	const handleSubmit = async (name: string) => {
-		const response = await fetch('/api/workspaces', {
-			method: 'POST',
-			body: JSON.stringify({ name }),
-			headers: {
-				'Content-Type': 'Application/json'
-			}
-		})
-		const workspace = await response.json()
+	const handleSubmit = async () => {
+		try {
+			const res = await axios.post('/api/workspaces', { name: workspaceName});
+		} catch (error) {
+			throw error;
+		}
 	}
-
 
 
 	return (
 		<Box>
-			<NavBar />
+			<HeaderLogo/>
 			<Container maxW={'7xl'}>
 				<Stack
 					align={'center'}
@@ -120,15 +116,15 @@ export default function CallToActionWithVideo() {
 									Create Your Workspace
 								</Heading>
 								<br />
-								<form>
-									<FormControl >
-										<FormLabel>Workspace Name</FormLabel>
-										<Input placeholder='' color={"red.300"} required />
-										<Button mt={3} colorScheme="red" variant={'outline'}>
-											<Text>Create Workspace</Text>
-										</Button>
-									</FormControl>
-								</form>
+								
+								<FormControl >
+									<FormLabel>Workspace Name</FormLabel>
+									<Input onChange={({ target }) => setWorkspaceName(target?.value)} value={workspaceName} placeholder='' color={"red.300"} required />
+									<Button mt={3} colorScheme="red" variant={'outline'} onClick={() => {handleSubmit()}}>
+										<Text>Create Workspace</Text>
+									</Button>
+								</FormControl>
+								
 
 							</Flex>
 

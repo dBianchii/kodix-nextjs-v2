@@ -12,7 +12,14 @@ import { LandingFooter } from '../components/organisms/LandingFooter/LandingFoot
 import { useSession } from 'next-auth/react'
 import NavBar from '../components/organisms/NavBar/NavBar'
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ data }) => {
+	
+	const { data: session, status } = useSession()
+
+	if (data){
+		console.log(data);
+	}
+
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -30,6 +37,16 @@ const Home: NextPage = () => {
 			<LandingFooter></LandingFooter>
 		</div>
 	)
+}
+
+export async function getServerSideProps() {
+	// Fetch data from external API
+	//const res = await fetch(`https://.../data`)
+	//const data = await res.json()
+//
+	//// Pass data to the page via props
+	const data = 'Test'
+	return { props: { data } }
 }
 
 export default Home
